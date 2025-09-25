@@ -1,18 +1,24 @@
-// Definições de funçãBUZZERo
-#define PROPER_BOARD 1                          // 1 Para quando estiver usando a placa Wifire V1
-#define NEW_BOARD (PROPER_BOARD && 1)           // 1 Para quando estiver usando a placa Wifire V1
-  #define CONTINUIDADE (NEW_BOARD && !RELE && 1)  // Liga/Desliga verificação de continuidade do ignitor
+// Definições de modos de operação
+#define PROPER_BOARD 1                          // 1 Para quando estiver usando a placa Wifire com botoes
+  #define NEW_BOARD (PROPER_BOARD && 1)           // 1 Para quando estiver usando a placa TE 2025 (com botoes)
+    #define CONTINUIDADE (NEW_BOARD && !RELE && 1)  // Liga/Desliga verificação de continuidade do ignitor
 
 
 #define LORA 1     // Liga o LoRa
+
 #define BUZZER 1   // Liga o buzzer
-#define LED_RGB (PROPER_BOARD && 1)  // Liga os leds
+  #define MILLIS (1 && BUZZER) // Alterna entre apitos com delay ou com millis
+
+#define LED_RGB (PROPER_BOARD && 1)  // Liga os leds RGB
 
 //-----------------------------Modos de Ignição------------------------------------------------------------
 #define RELE (PROPER_BOARD && 0)                // Alterna entre modulo rele(porta 27) ou mosfet(porta A8 com NEW_BOARD = 1 e porta A0 caso seja NEW_BOARD = 0)
 #define IGN1234 (!PROPER_BOARD && 0)            // Alterna entre as 4 portas da placa de voo (=1) ou a porta IGNN 27 (=0),
 
-#define MILLIS (1 && BUZZER)
+
+
+
+//-----------------------------------------------------------------------------------------
 #if BUZZER
 #if (MILLIS)
 #define BEEP_D 0  // Apitos com delay
@@ -22,7 +28,7 @@
 #define BEEP_M 0  // Apitos com millis
 #endif            // MILLIS
 #endif            // BUZZER
-//-----------------------------------------------------------------------------------------
+
 #if (PROPER_BOARD)
 // Pinos Ign
 #if (RELE)
