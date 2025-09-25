@@ -8,7 +8,7 @@ O sistema trabalha com envio de **pings e respostas**, além de comandos de **ar
 
 ## 🎛️ Botões de Controle
 
-- 🟡 **Amarelo** → Envia comando de **teste (ping)**.  
+- 🟡 **Amarelo** → Envia comando de **teste (ping)**, reseta a senha e desarma os sistemas.  
 - 🟢 **Verde** → Utilizado na lógica de senha e sequência de armamento.  
 - 🔵 **Azul** → Utilizado na lógica de senha e sequência de armamento.  
 - 🔴 **Vermelho** → Aciona o comando de **ignição** (apenas em estado armado).  
@@ -21,8 +21,8 @@ O protocolo de comunicação é baseado em mensagens simples de texto:
 
 - `PING!\n` → Comando de teste enviado pela base.  
 - `PONG!\n` → Resposta do sistema indicando comunicação ativa.  
-- `ARM!\n` → Coloca o sistema em **estado armado** (após senha correta).  
-- `DISARM!\n` → Retorna o sistema para **estado desarmado**.  
+- `ARMED!\n` → Coloca o sistema em **estado armado** (após senha correta).  
+- `DISARMED!\n` → Retorna o sistema para **estado desarmado**.  
 - `IGN!\n` → Executa o comando de **ignição** (apenas se armado).  
 
 ---
